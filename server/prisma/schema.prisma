@@ -1,0 +1,41 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-ts"
+  output   = "../src/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Tick {
+  id        Int    @id @default(autoincrement())
+  species   String
+  latinName String
+
+  sightings Sighting[]
+}
+
+model Sighting {
+  id         Int      @id @default(autoincrement())
+  tickId     Int
+  locationId Int
+  date       DateTime @default(now())
+
+  tick     Tick     @relation(fields: [tickId], references: [id])
+  location Location @relation(fields: [locationId], references: [id])
+}
+
+model Location {
+  id         Int    @id @default(autoincrement())
+  name       String
+  admin_name String
+  latitude   Float
+  longtitude Float
+  population Int?
+
+  sightings Sighting[]
+}
