@@ -1,0 +1,343 @@
+@import url(https://fonts.googleapis.com/css2?family=Poppins);
+
+:root {
+    --ui-color: white;
+    --hover-color: lightgray;
+    --content-height: calc(100dvh - 50px);
+    --display-width: calc(100dvw - 400px - 20px - 10px);
+
+    --severity-0: #0a3;
+    --severity-1: #da3;
+    --severity-2: #f03;
+}
+
+body {
+    margin: 0;
+    padding-top: env(safe-area-inset-top);
+    height: 100dvh;
+    background-color: white;
+}
+
+* {
+    font-family: Poppins,sans-serif;
+    box-sizing: border-box;
+}
+
+/* Helper classes */
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.row {
+    flex-direction: row;
+}
+
+.row-reverse {
+    flex-direction: row-reverse;
+}
+
+.ui-element {
+    background-color: var(--ui-color);
+    border: 1px solid #AAA;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.title {
+    width: 100%;
+    justify-content: left;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.wh100 {
+    height: 100%;
+}
+
+.s-0 {
+    background-color: var(--severity-0);
+    color: white;
+}
+
+.s-1 {
+    background-color: var(--severity-1);
+    color: white;
+}
+
+.s-2 {
+    background-color: var(--severity-2);
+    color: white;
+}
+
+.s-3 {
+    background-color: #000;
+    color: white;
+}
+
+.dimmed {
+    background-color: var(--hover-color);
+}
+
+.hidden {
+    display: none;
+}
+
+/* Element classes */
+
+.header-container {
+    height: 50px;
+    width: 100%;
+    padding: 10px;
+    padding-bottom: 0;
+}
+
+.header {
+    height: 100%;
+    width: 100%;
+    padding: 3px;
+    justify-content: center;
+
+}
+
+.switch {
+    width: 100%;
+
+    border-radius: 10px;
+    border: 1px solid black;
+    overflow: hidden;
+}
+
+.option {
+    justify-content: center;
+    width: 50%;
+
+    border: 0.5px solid black;
+    cursor: pointer;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.option.selected {
+
+    background-color: black;
+    color: white;
+}
+
+#filter-title {
+    justify-content: center;
+    background-color: darkgray;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+#filter-title:hover {
+    background-color: lightgray;
+}
+
+.filters-container {
+    padding: 10px;
+    border-bottom: 1px solid lightgray;
+}
+
+.filters {
+    height: 100%;
+    width: 100%;
+    justify-content: left;
+    overflow-y: auto;
+
+    scrollbar-color: black transparent;
+}
+
+input[type=submit] {
+    background-color: black;
+    color: white;
+}
+
+label {
+    margin: 0;
+    padding: 0;
+}
+
+.content-container {
+    width: 100%;
+    height: var(--content-height);
+    padding: 10px;
+}
+
+.content {
+    height: 100%;
+}
+
+.display {
+    position:relative;
+    height: 100%;
+    width: var(--display-width);
+}
+
+.back-button {
+    position:absolute;
+    top: 10px;
+    right: 10px;
+    border-radius: 10px;
+    padding: 5px;
+    background-color: black;
+    color: white;
+    border: 1px black solid;
+
+    cursor: pointer;
+}
+
+canvas#chart {
+    width: 100%;
+    height: 100%;
+}
+
+.context {
+    width: 400px;
+    height: 100%;
+    margin-left: 10px;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.result-list {
+    width: 100%;
+    min-height: 200px;
+    overflow-y: auto;
+}
+
+.result {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 5px;
+    transition: background-color 0.5s;
+}
+
+.result:hover {
+    background-color: lightgray;
+}
+
+.count-highlight {
+    border-radius: 10px;
+    padding: 3px;
+    min-width: 30px;
+    text-align: center;
+    margin-right: 5px;
+}
+
+.text.title {
+    font-size: 1.25em;
+    margin-top: 7px;
+    text-align: center;
+}
+
+.tag-list {
+    margin: 5px;
+}
+
+.tag {
+    color: white;
+    background-color: darkgray;
+    padding: 4px;
+    font-size: 0.7em;
+    border-radius: 20px;
+    margin: 1px;
+}
+
+.trend-title {
+    font-size: 0.7em;
+}
+
+.trend-button {
+    font-size: 0.6em;
+    color: #000;
+    border: #000 1px solid;
+    border-radius: 10px;
+    margin-left: 5px;
+
+    cursor: pointer;
+}
+
+form#report-form {
+    align-items: flex-start;
+    padding-top: 20px;
+    width: 100%;
+}
+
+form label.text, form input:not([type=submit]), form select {
+    width: 50%;
+    margin-bottom: 5px;
+}
+
+input:invalid {
+    background-color: #f008;
+}
+
+.message {
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    position: relative;
+
+    color: white;
+    border-radius: 10px;
+    white-space: break-spaces;
+}
+
+.success-message {
+    background-color: rgb(79, 164, 79);
+    border: 3px green solid;
+}
+
+.error-message {
+    background-color: rgb(208, 41, 74);
+    border: 3px red solid;
+}
+
+.close-message {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    CURSOR: pointer;
+    color: white;
+}
+
+a.source {
+    justify-content: center;
+    width: 100%;
+    height: 100px;
+    text-decoration: none;
+    margin-top: 20px;
+
+    transition: background-color 0.5s;
+}
+
+a:hover {
+    background-color: lightblue;
+}
+
+@media only screen and (max-aspect-ratio: 1/1) {
+    .content {
+        flex-direction: column;
+    }
+
+    .display {
+        width: 100%;
+        height: 60%;
+    }
+
+    .context {
+        width: 100%;
+        height: 40%;
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}

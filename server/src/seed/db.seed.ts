@@ -5,8 +5,8 @@ import prisma from '../config/db.config'
 
 export default async function seedDatabase() {
     console.log("Seeding the database...");
-    const cityLocationsFile = xlsx.readFile(path.resolve(__dirname, '../../sample_data/worldcities.xlsx'));
-    const tickSightingsFile = xlsx.readFile(path.resolve(__dirname, '../../sample_data/tick-sightings.xlsx'));
+    const cityLocationsFile = xlsx.readFile(path.resolve(__dirname, '../../resources/worldcities.xlsx'));
+    const tickSightingsFile = xlsx.readFile(path.resolve(__dirname, '../../resources/tick-sightings.xlsx'));
 
     const cityLocationsData = xlsx.utils.sheet_to_json(
         cityLocationsFile.Sheets[cityLocationsFile.SheetNames[0]]

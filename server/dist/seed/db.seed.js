@@ -9,8 +9,8 @@ const path_1 = __importDefault(require("path"));
 const db_config_1 = __importDefault(require("../config/db.config"));
 async function seedDatabase() {
     console.log("Seeding the database...");
-    const cityLocationsFile = xlsx_1.default.readFile(path_1.default.resolve(__dirname, '../../sample_data/worldcities.xlsx'));
-    const tickSightingsFile = xlsx_1.default.readFile(path_1.default.resolve(__dirname, '../../sample_data/tick-sightings.xlsx'));
+    const cityLocationsFile = xlsx_1.default.readFile(path_1.default.resolve(__dirname, '../../resources/worldcities.xlsx'));
+    const tickSightingsFile = xlsx_1.default.readFile(path_1.default.resolve(__dirname, '../../resources/tick-sightings.xlsx'));
     const cityLocationsData = xlsx_1.default.utils.sheet_to_json(cityLocationsFile.Sheets[cityLocationsFile.SheetNames[0]]).filter((obj) => obj.iso2 == "GB").map((obj) => ({
         name: obj.city,
         admin_name: obj.admin_name,

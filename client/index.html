@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tick Sightings</title>
+    <link rel="stylesheet" href="lib/leaflet.css"/>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="assets/favicon.png">
+    <script src="lib/fontawesome.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="script.js"></script>
+</head>
+<body>
+    <div class="header-container">
+        <div class="header flex column ui-element">
+            <div class="switch flex row">
+                <button id="search-option" class="option selected flex row">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <div class="text">Search</div>
+                </button>
+                <button id="report-option" class="option flex row">
+                    <i class="fa-solid fa-bug"></i>
+                    <div class="text">Report</div>
+                </button>
+                <button id="info-option" class="option flex row">
+                    <i class="fa-solid fa-book"></i>
+                    <div class="text">Info</div>
+                </button>
+            </div>
+            
+        </div>
+    </div>
+    <div class="content-container">
+        <div class="content flex row">
+            <div id="map" class="ui-element display"></div>
+            <div id="chart-container" class="ui-element flex row display hidden">
+                <button class="back-button" id="back">Back to Map</button>
+                <canvas id="chart"></canvas>
+            </div>
+            <div id="search-context" class="context ui-element flex column">
+                <div id="search-mode" class="filters-container flex column w-100">
+                    <div id="filter-title" class="flex title row">
+                        <i class="fa-solid fa-filter"></i>
+                        <div class="text">Filters</div>
+                    </div>
+                    <form class="filters flex column hidden" id="search-form" method="get" action="/api/ticks/sightings">
+                        <div class="flex row w-100">
+                            <label for="filter-species" class="text">Species</label>
+                            <select id="filter-species" form="search-form" name="id">
+                                <option value="0" selected="selected">Any</option>
+                            </select>
+                        </div>
+                        <div class="flex row w-100">
+                            <label for="severity" class="text">Severity</label>
+                            <select id="severity" form="search-form" name="severity">
+                                <option value="-1" selected="selected">Any</option>
+                                <option value="0">Low</option>
+                                <option value="1">Medium</option>
+                                <option value="2">High</option>
+                            </select>
+                        </div>
+                        <div class="flex row w-100">
+                            <label for="from" class="text" name="after">After</label>
+                            <input type="date" name="after" id="after">
+                        </div>
+                        <div class="flex row w-100">
+                            <label for="to" class="text">Before</label>
+                            <input type="date" name="before" id="before">
+                        </div>
+                        <input type="submit" class="w-100" value="Search">
+                    </form>
+                </div>
+                <div class="text title" id="result-title">Results (0)</div>
+                <div class="tag-list flex row" id="tag-list"></div>
+                <div class="result-list flex column" id="result-list"></div>
+            </div>
+            <div id="report-context" class="context ui-element flex column hidden">
+                <div class="text title">Report a sighting</div>
+                <form action="/api/ticks/report-sighting" method="post" id="report-form" class="flex column">
+                    <div class="flex row w-100">
+                        <label for="report-species" class="text">Species</label>
+                        <select id="report-species" form="report-form" name="tickId">
+                        </select>
+                    </div>
+                    <div class="flex row w-100">
+                        <label for="location" class="text">Location</label>
+                        <input list="report-locations" id="location">
+                        <datalist id="report-locations"></datalist>
+                    </div>
+                    <input type="number" class="hidden" id="location-id" name="locationId">
+                    <input type="submit" class="w-100">
+                </form>
+            </div>
+            <div id="info-context" class="context ui-element flex column hidden">
+                <div class="text title">Useful Information</div>
+                <a class="ui-element flex source" target="_blank" href="https://www.esccapuk.org.uk/page/Ticks/36/">
+                    Species Guide (ESCCAP)
+                </a>
+                <a class="ui-element flex source" target="_blank" href="https://ukhsa.blog.gov.uk/2014/03/24/tips-and-tricks-to-stay-safe-from-ticks/">
+                    Prevention Tips (UKHSA)
+                </a>
+                <a class="ui-element flex source" target="_blank" href="https://ukhsa-dashboard.data.gov.uk/vectors-and-vector-borne-diseases/ticks">
+                    Ixodes Ricinus Data (UKHSA)
+                </a>
+                <a class="ui-element flex source" target="_blank" href="https://ukhsa-dashboard.data.gov.uk/vectors-and-vector-borne-diseases/ticks">
+                    Ticks (GOV UK)
+                </a>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
