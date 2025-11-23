@@ -3,6 +3,9 @@ import router from './routes/index.route';
 import csp from './middleware/csp.middleware';
 import bodyParser from 'body-parser';
 import path from 'path';
+import { config } from 'dotenv';
+
+config();
 
 const app = express();
 
