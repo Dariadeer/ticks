@@ -66,7 +66,6 @@ function sightings(id: number, options?: { after?: Date, before?: Date }) {
 }
 
 function trends(tickId: number = -1, after: Date | undefined, before: Date | undefined, mode: number = 2, locationId: number = -1) {
-    console.log(locationId);
     return prisma.$queryRawUnsafe(
         trendQueries[mode].replace('%WHERE%', 
             `WHERE ${tickId === -1 ? '' : `tickId = ${tickId} AND`} ${locationId === -1 ? '' : `locationId = ${locationId} AND`} "cdate" > '${after?.toISOString() ?? '1900-01-01'}' AND "cdate" < '${before?.toISOString() ?? '3000-01-01'}'`

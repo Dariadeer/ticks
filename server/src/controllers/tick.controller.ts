@@ -90,8 +90,6 @@ export async function getTickTrends(req: Request, res: Response) {
     const after = stringToDateOrUndefined(req.query.after as string);
     const before = stringToDateOrUndefined(req.query.before as string);
 
-    console.log(req.query, after, before);
-
     if(isNaN(tickId)) tickId = -1;
     if(isNaN(locationId)) locationId = -1;
     if(isNaN(mode)) mode = 0;
