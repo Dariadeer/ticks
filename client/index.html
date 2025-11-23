@@ -33,7 +33,23 @@
     </div>
     <div class="content-container">
         <div class="content flex row">
-            <div id="map" class="ui-element display"></div>
+            <div id="map" class="ui-element display">
+                <div class="map-legend">
+                    <div class="title"><b>Severity</b></div>
+                    <div class="flex row">
+                        <div class="circle s-0"></div>
+                        <div class="text">Low</div>
+                    </div>
+                    <div class="flex row">
+                        <div class="circle s-1"></div>
+                        <div class="text">Medium</div>
+                    </div>
+                    <div class="flex row">
+                        <div class="circle s-2"></div>
+                        <div class="text">High</div>
+                    </div>
+                </div>
+            </div>
             <div id="chart-container" class="ui-element flex row display hidden">
                 <button class="back-button" id="back">Back to Map</button>
                 <canvas id="chart"></canvas>

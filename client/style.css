@@ -181,6 +181,26 @@ label {
     width: var(--display-width);
 }
 
+.circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.map-legend {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    background-color: #aaa5;
+    z-index: 999;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.map-legend * {
+    padding: 1px;
+}
+
 .back-button {
     position:absolute;
     top: 10px;
@@ -236,6 +256,10 @@ canvas#chart {
     font-size: 1.25em;
     margin-top: 7px;
     text-align: center;
+}
+
+.title b {
+    width: 100%;
 }
 
 .tag-list {
