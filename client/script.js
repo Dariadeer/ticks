@@ -113,6 +113,7 @@ function showSightings(data) {
         const statOptions = {
             tickId: data.tick ? data.tick.id : null,
             locationId: location.id,
+            location: location.name,
             after: data.after,
             before: data.before
         }
@@ -207,7 +208,7 @@ async function showChart(statOptions, mode) {
             datasets: [{
                 fill: true,
                 backgroundColor: '#00f6',
-                label: '# of Sightings',
+                label: '# of Sightings ' + (statOptions.location ? `in ${statOptions.location} ` : '') + (mode === 2 ? '(Yearly)' : (mode === 1 ? '(Monthly)' : '(Weekly)')),
                 data: values,
                 borderWidth: 1
             }]

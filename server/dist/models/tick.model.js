@@ -66,7 +66,6 @@ function sightings(id, options) {
     });
 }
 function trends(tickId = -1, after, before, mode = 2, locationId = -1) {
-    console.log(locationId);
     return db_config_1.default.$queryRawUnsafe(trendQueries[mode].replace('%WHERE%', `WHERE ${tickId === -1 ? '' : `tickId = ${tickId} AND`} ${locationId === -1 ? '' : `locationId = ${locationId} AND`} "cdate" > '${after?.toISOString() ?? '1900-01-01'}' AND "cdate" < '${before?.toISOString() ?? '3000-01-01'}'`));
 }
 function report(id, locationId) {

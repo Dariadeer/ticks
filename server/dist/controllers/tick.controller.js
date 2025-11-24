@@ -84,7 +84,6 @@ async function getTickTrends(req, res) {
     let mode = Number.parseInt(req.query.mode);
     const after = (0, date_util_1.stringToDateOrUndefined)(req.query.after);
     const before = (0, date_util_1.stringToDateOrUndefined)(req.query.before);
-    console.log(req.query, after, before);
     if (isNaN(tickId))
         tickId = -1;
     if (isNaN(locationId))
