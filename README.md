@@ -23,20 +23,27 @@ npx prisma generate
 ```sh
 npm run build
 ```
-6. Run the application:
+6. Seed the database with the sample data:
+```sh
+npm run seed
+```
+7. Run the application:
 ```sh
 npm start
 ```
-7. Open the link prompted in the terminal:
+8. Open the link prompted in the terminal:
 ```http
 http://localhost:3000
 ```
-8. (Optional) Create a .env file with a port you want to use instead, for example:
+9. (Optional) Create a .env file with a port you want to use instead, for example:
 ```properties
 PORT=80
 ```
-9. (Optional) If you know your local IP address, connect to test on a mobile device (same port).
-10. (Opional) If you experience any issues, you can try out the app hosted online on my AWS EC2 instance:
+10. (Optional) If you know your local IP address, connect to test on a mobile device (same port).
+```http
+http://192.168.xxx.yyy:3000/
+```
+11. (Opional) If you experience any issues, you can try out the app hosted online on my AWS EC2 instance:
 ```http
 http://44.201.179.27:4000/
 ```
