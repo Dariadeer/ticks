@@ -181,7 +181,6 @@ async function showChart(statOptions, mode) {
                     month = 1;
                 }
                 nextMonthString = year + '-' + String(month).padStart(2, '0');
-                console.log(nextMonthString, trends[i].month)
                 if(trends[i].month !== nextMonthString) {
                     labels.push(nextMonthString);
                     values.push(0);
@@ -379,9 +378,7 @@ function initElements() {
             locationIdInput.val(null);
         } else {
             locationInput[0].setCustomValidity("")
-            console.log(location);
             locationIdInput.val(location.id);
-            console.log(locationIdInput.val());
         }
     });
 }
