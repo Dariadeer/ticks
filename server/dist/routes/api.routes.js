@@ -1,9 +1,0 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = require("express");
-const tick_controller_1 = require("../controllers/tick.controller");
-const router = (0, express_1.Router)();
-router.get("/ticks", tick_controller_1.getAllTicks);
-router.get("/ticks/sightings", tick_controller_1.getAllTickSightings);
-router.post("/ticks/report-sighting", tick_controller_1.postTickSighting);
-exports.default = router;
