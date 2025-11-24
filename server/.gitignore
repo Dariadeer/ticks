@@ -1,6 +1,5 @@
 node_modules
 .env
-
+dist
 src/prisma
-
 prisma/dev.db
