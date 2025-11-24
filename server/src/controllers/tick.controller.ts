@@ -69,9 +69,9 @@ export async function postTickSighting(req: Request, res: Response) {
     }
     try {
         const sighting = await ticks.report(tickId, locationId);
-        res.json({ success: true, data: { sighting } });
+        res.status(201).json({ success: true, data: { sighting } });
     } catch {
-        res.json({ error: "Failed to report a sighting" });
+        res.status(500).json({ error: "Failed to report a sighting" });
     }
 
 }
