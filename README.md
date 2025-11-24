@@ -35,6 +35,11 @@ http://localhost:3000
 ```properties
 PORT=80
 ```
+9. (Optional) If you know your local IP address, connect to test on a mobile device (same port).
+10. (Opional) If you experience any issues, you can try out the app hosted online on my AWS EC2 instance:
+```http
+http://44.201.179.27:4000/
+```
 
 ## Project outline
 
@@ -108,7 +113,7 @@ The `%WHERE` bit would be replaced by a parameter filter mentioned above, which 
 #### Front-end
 I decided to go with a simple HTML/CSS/JS stack due to my familiarity with it, light-weightness, simplicity, flexibility and not needing to build the project, unlike other tools like React.js or Flutter. Additionally, I wanted to take this opportunity to work with JQuery.
 
-The design was heavily inspired by a mock-up attached to the task document. Its functionality allows the user to visualise tick sightings on the map, analyse trends across different timeframes, species and locations, report a sighting to the central database as well as see some useful resources about tick awareness, diversity and counter-measures.
+The design was heavily inspired by a mock-up attached to the task document. Its functionality allows the user to visualise tick sightings on the map, analyse trends across different timeframes, species and locations, report a sighting to the central database as well as see some useful resources about tick awareness, diversity and counter-measures. The resulting website is well fit for both wide-screen and mobile device viewports.
 
 Ironically, I don't have much to talk about in this part, despite spending most of my time on it. Managing and verifying every interaction once again reminded me how sore this area of Software Engineering can be.
 
