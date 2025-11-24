@@ -5,10 +5,12 @@ import { stringToDateOrUndefined } from "../utils/date.util";
 import { renameKey } from "../utils/objects.util";
 
 export async function getAllTickSightings(req: Request, res: Response) {
-    const id = Number.parseInt(req.query.id as string);
+    let id = Number.parseInt(req.query.id as string);
     const after = stringToDateOrUndefined(req.query.after as string);
     const before = stringToDateOrUndefined(req.query.before as string);
     const severity = Number.parseInt(req.query.severity as string);
+
+    if(!id) id = 0;
 
     let sightings = await ticks.sightings(id, { after, before });
     const tick = await ticks.get(id);
